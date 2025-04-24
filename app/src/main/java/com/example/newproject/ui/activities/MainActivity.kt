@@ -97,4 +97,21 @@ class MainActivity : AppCompatActivity(), NavController.OnDestinationChangedList
         }
     }
 
+    override fun onBackPressed() {
+        if(navController?.currentDestination?.id==R.id.fragmentB) {
+            navController?.popBackStack(R.id.fragmentA, false)
+        }
+
+        else if(navController?.currentDestination?.id==R.id.fragmentA){
+            finish()
+            }
+        else{
+            super.onBackPressed()
+        }
+
+    }
+
+
+
+
 }

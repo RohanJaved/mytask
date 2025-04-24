@@ -33,7 +33,6 @@ class DrinkAdapter(
 
             ivFavorite.setOnClickListener {
                 onFavoriteClick(drink, !isFav)
-
             }
         }
     }

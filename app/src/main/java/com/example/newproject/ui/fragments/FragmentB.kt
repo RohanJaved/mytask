@@ -14,6 +14,8 @@ import com.example.newproject.R
 import com.example.newproject.databinding.FragmentABinding
 import com.example.newproject.databinding.FragmentBBinding
 import com.example.newproject.datamodels.Drink
+import com.example.newproject.utils.hide
+import com.example.newproject.utils.visible
 import com.example.newproject.viewmodel.DrinksViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -48,30 +50,19 @@ class FragmentB : Fragment() {
         binding?.recyclerViewFavorites?.adapter = adapter
         binding?.recyclerViewFavorites?.layoutManager = LinearLayoutManager(requireContext())
 
-
         viewModel.drinksLiveData.observe(viewLifecycleOwner) { drinks ->
             val favIds = viewModel.favoritesLiveData.value?.map { it.idDrink } ?: emptyList()
             val favDrinks = drinks.filter { it.idDrink in favIds }
-            adapter.updateData(favDrinks, favIds)
+            if(favDrinks.isEmpty())
+            {
+                binding?.noFavorites?.visible()
+            }
+            else{
+                binding?.noFavorites?.hide()
+                adapter.updateData(favDrinks, favIds)
+            }
+
         }
-
-//        viewModel.favoritesLiveData.observe(viewLifecycleOwner) {
-//            // Re-trigger drinks observer manually (if needed)
-//            viewModel.drinksLiveData.value?.let { drinks ->
-//                val favIds = it.map { it.idDrink }
-//                val favDrinks = drinks.filter { drink -> drink.idDrink in favIds }
-//                adapter.updateData(favDrinks, favIds)
-//            }
-//        }
-        // Observe favorites
-//        viewModel.favoritesLiveData.observe(viewLifecycleOwner) { favorites ->
-//            Log.e("TAG", "onViewCreated: ${favorites.toString()}", )
-//            val favdrinksList = favorites.map { it.idDrink }
-//            adapter.updateData(viewModel.drinksLiveData.value ?: emptyList(), favdrinksList)
-//            Log.e("TAG" ,"Updating: ")
-//        }
-
-        // Load favorites
         viewModel.loadFavorites()
     }
     override fun onDestroyView() {
