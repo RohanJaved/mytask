@@ -90,4 +90,19 @@ dependencies {
     debugImplementation("com.github.chuckerteam.chucker:library:3.4.0")
     releaseImplementation("com.github.chuckerteam.chucker:library-no-op:3.4.0")
 
+
+    // Room components
+    implementation ("androidx.room:room-runtime:2.6.1")
+    kapt ("androidx.room:room-compiler:2.6.1") // use annotationProcessor if not using Kotlin
+
+// Kotlin Extensions and Coroutines support
+    implementation ("androidx.room:room-ktx:2.6.1")
+
+    // Material Components for BottomNavigationView
+    implementation ("com.google.android.material:material:1.9.0")
+
+    //Glide
+    implementation ("com.github.bumptech.glide:glide:4.13.0")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.13.0")
+
 }
