@@ -12,5 +12,7 @@ class Application:Application() {
         super.onCreate()
 
     }
+
+
     var activity: Activity? = null
 }
