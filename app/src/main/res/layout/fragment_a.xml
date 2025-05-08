@@ -10,10 +10,8 @@
     <!-- Radio buttons to choose search type -->
     <RadioGroup
         android:id="@+id/searchTypeGroup"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,17 +19,18 @@
 
         <RadioButton
             android:id="@+id/radioName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Name" />
 
         <RadioButton
             android:id="@+id/radioAlphabet"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_weight="1"
             android:text="Alphabet" />
     </RadioGroup>
-
     <!-- Search input field -->
     <EditText
         android:id="@+id/searchEditText"

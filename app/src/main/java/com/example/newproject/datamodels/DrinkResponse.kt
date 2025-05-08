@@ -1,7 +1,7 @@
 package com.example.newproject.datamodels
 
  class DrinkResponse(
-    val drinks: ArrayList<Drink>?
+    val drinks: List<Drink>?
 )
 
 data class Drink(

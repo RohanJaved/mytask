@@ -24,6 +24,7 @@ class DrinksViewModel@Inject constructor(private val repo: Repo, val app: Applic
     init {
         context = app.applicationContext
     }
+
     val drinksLiveData = MutableLiveData<List<Drink>>()
     val favoritesLiveData = MutableLiveData<List<FavoriteDrink>>()
 
