@@ -14,5 +14,8 @@ class Application:Application() {
     }
 
 
+
+
+
     var activity: Activity? = null
 }
